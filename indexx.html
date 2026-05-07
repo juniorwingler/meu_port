@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Roberto Junior Morau | Portfólio Profissional</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-secondary: #475569;
+            --accent: #0ea5e9;
+            --accent-dark: #0284c7;
+            --accent-light: #e0f2fe;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 960px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #0c4a6e 100%);
+            color: #fff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(14, 165, 233, 0.25) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .header .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(6px);
+        }
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .header .subtitle {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #bae6fd;
+            margin-bottom: 14px;
+        }
+        .header .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        .header .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+        .header .contact-row a {
+            color: #bae6fd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .header .contact-row a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .contact-dot {
+            color: #64748b;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+        }
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            gap: 6px;
+            padding: 10px 20px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        .nav-inner a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+        .nav-inner a:hover,
+        .nav-inner a:focus {
+            background: var(--accent-light);
+            color: var(--accent-dark);
+        }
+
+        /* ── MAIN ── */
+        .main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 32px 20px 60px;
+        }
+        .section {
+            margin-bottom: 48px;
+        }
+        .section-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon {
+            font-size: 1.3rem;
+        }
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-1px);
+        }
+
+        /* ── TIMELINE ── */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+            border-radius: 1px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--surface);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-item .period {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+        .timeline-item h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .timeline-item .company {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .timeline-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline-item ul li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 2px 0 2px 18px;
+            position: relative;
+        }
+        .timeline-item ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.7rem;
+            top: 4px;
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 640px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .skill-group h4 {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: var(--accent-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+        .skill-tag.highlight {
+            background: #0c4a6e;
+            color: #fff;
+            border-color: #0c4a6e;
+        }
+
+        /* ── COURSES ── */
+        .courses-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        @media (max-width: 600px) {
+            .courses-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        .course-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        .course-item:hover {
+            border-color: var(--accent);
+            background: #f8fdfe;
+        }
+        .course-item .course-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .course-item .course-hours {
+            font-weight: 700;
+            color: var(--accent-dark);
+            white-space: nowrap;
+            font-size: 0.8rem;
+        }
+
+        /* ── HIGHLIGHTS ── */
+        .highlight-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            border: 2px solid #bae6fd;
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-top: 16px;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+            color: #0c4a6e;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 0.85rem;
+        }
+        .footer a {
+            color: #bae6fd;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+
+        /* ── FADE-IN ANIMATION ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════ HEADER ═══════════ -->
+    <header class="header">
+        <div class="header-content">
+            <div class="avatar">JM</div>
+            <h1>José Roberto Junior Morau</h1>
+            <p class="subtitle">Analista de Suporte • Técnico em Informática • Desenvolvedor em Formação</p>
+            <div class="badge-row">
+                <span class="badge">🛠️ Suporte N1/N2</span>
+                <span class="badge">🐍 Python & Automação</span>
+                <span class="badge">📊 Análise de Dados</span>
+                <span class="badge">🤖 IA & Integrações</span>
+            </div>
+            <div class="contact-row">
+                <span>📱 (27) 99641-0080</span>
+                <span class="contact-dot">•</span>
+                <a href="mailto:juniorwinglersantos@gmail.com">📧 juniorwinglersantos@gmail.com</a>
+                <span class="contact-dot">•</span>
+                <a href="https://linkedin.com/in/jrsantomorau" target="_blank" rel="noopener">🔗 LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════ NAV ═══════════ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#sobre">Sobre</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#competencias">Competências</a>
+            <a href="#objetivos">Objetivos</a>
+            <a href="#formacao">Formação</a>
+            <a href="#cursos">Cursos</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════ MAIN ═══════════ -->
+    <main class="main">
+
+        <!-- SOBRE -->
+        <section class="section fade-in" id="sobre">
+            <h2 class="section-title"><span class="icon">👋</span> Sobre Mim</h2>
+            <div class="card">
+                <p style="font-size:1.05rem;margin:0;">
+                    Profissional de TI com <strong>mais de 5 anos de experiência</strong> em suporte técnico, manutenção de hardware
+                    e atendimento a usuários corporativos. Atualmente cursando o último semestre de
+                    <strong>Análise e Desenvolvimento de Sistemas</strong>, estou em transição ativa para o desenvolvimento de
+                    software, com foco em <strong>automação de processos, Python, SQL e Inteligência Artificial</strong>.
+                    Tenho perfil analítico, sou orientado a resultados e estou pronto para contribuir com soluções técnicas reais.
+                </p>
+                <div class="highlight-box" style="margin-top:16px;">
+                    <p>
+                        🚀 <strong>Disponível para oportunidades</strong> — Possuo CNH AB, carro e moto próprios, disponibilidade
+                        para viagens e mudança de cidade.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIÊNCIA -->
+        <section class="section fade-in" id="experiencia">
+            <h2 class="section-title"><span class="icon">💼</span> Experiência Profissional</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="period">Set 2025 – Out 2025</div>
+                    <h3>Analista de Suporte</h3>
+                    <div class="company">IK · Contrato Louis Dreyfus Company</div>
+                    <ul>
+                        <li>Suporte de segundo nível em ambiente corporativo</li>
+                        <li>Diagnóstico avançado e resolução de incidentes críticos</li>
+                        <li>Cumprimento rigoroso de SLA em alta demanda</li>
+                        <li>Foco em estabilidade operacional e solução definitiva</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="period">Ago 2023 – Ago 2025</div>
+                    <h3>Técnico Pleno em Microinformática</h3>
+                    <div class="company">Lanlink Informática</div>
+                    <ul>
+                        <li>Suporte N1/N2 com alto volume de chamados</li>
+                        <li>Manutenção preventiva e corretiva de hardware</li>
+                        <li>Atuação direta na redução de indisponibilidade de equipamentos</li>
+                        <li>Suporte a usuários corporativos com foco em produtividade</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="period">Ago 2023 – Out 2023</div>
+                    <h3>Suporte ao Usuário (Help Desk)</h3>
+                    <div class="company">Gransystem Informática</div>
+                    <ul>
+                        <li>Atendimento técnico e análise de chamados</li>
+                        <li>Resolução de problemas sistêmicos e operacionais</li>
+                        <li>Organização e priorização de demandas</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="period">Fev 2020 – Jul 2023</div>
+                    <h3>Técnico de Informática</h3>
+                    <div class="company">Fx Informática</div>
+                    <ul>
+                        <li>Diagnóstico avançado em diversos dispositivos</li>
+                        <li>Suporte remoto e presencial</li>
+                        <li>Manutenção de hardware e redes</li>
+                        <li>Elaboração de orçamentos e participação comercial</li>
+                        <li>Foco em solução definitiva e satisfação do cliente</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="period">Set 2018 – Jun 2019</div>
+                    <h3>Assistente de Informática</h3>
+                    <div class="company">Distribuição de Vestuário Globo Eireli</div>
+                    <ul>
+                        <li>Help desk e suporte técnico</li>
+                        <li>Análise básica de redes LAN/WAN</li>
+                        <li>Atendimento direto ao usuário</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="period">2013 – 2018</div>
+                    <h3>Experiências Iniciais</h3>
+                    <div class="company">Grupo Rondelli / A Gazeta</div>
+                    <ul>
+                        <li>Desenvolvimento de disciplina, organização e responsabilidade</li>
+                        <li>Atendimento ao público e logística</li>
+                        <li>Base comportamental sólida para ambientes corporativos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETÊNCIAS -->
+        <section class="section fade-in" id="competencias">
+            <h2 class="section-title"><span class="icon">⚡</span> Principais Competências</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4>🖥️ Hard Skills</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Python</span>
+                        <span class="skill-tag highlight">SQL / PostgreSQL</span>
+                        <span class="skill-tag">Análise de Dados</span>
+                        <span class="skill-tag">Automação de Tarefas</span>
+                        <span class="skill-tag">Suporte N1/N2</span>
+                        <span class="skill-tag">Diagnóstico de Falhas</span>
+                        <span class="skill-tag">Manutenção de Hardware</span>
+                        <span class="skill-tag">Gestão de SLA</span>
+                        <span class="skill-tag">Lógica de Programação</span>
+                        <span class="skill-tag">Conceitos de IA</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h4>🧠 Soft Skills</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pensamento Analítico</span>
+                        <span class="skill-tag">Comunicação Clara</span>
+                        <span class="skill-tag">Tomada de Decisão</span>
+                        <span class="skill-tag">Orientação a Resultados</span>
+                        <span class="skill-tag">Resolução sob Pressão</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBJETIVOS -->
+        <section class="section fade-in" id="objetivos">
+            <h2 class="section-title"><span class="icon">🎯</span> Interesses e Objetivos Profissionais</h2>
+            <div class="card">
+                <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
+                    <li style="padding-left:24px;position:relative;">
+                        <span style="position:absolute;left:0;">🔹</span>
+                        <strong>Transição ativa para desenvolvimento de software</strong>
+                    </li>
+                    <li style="padding-left:24px;position:relative;">
+                        <span style="position:absolute;left:0;">🔹</span>
+                        <strong>Foco em automação de processos e criação de scripts</strong>
+                    </li>
+                    <li style="padding-left:24px;position:relative;">
+                        <span style="position:absolute;left:0;">🔹</span>
+                        Estudos contínuos em <strong>Inteligência Artificial</strong> e aplicações práticas
+                    </li>
+                    <li style="padding-left:24px;position:relative;">
+                        <span style="position:absolute;left:0;">🔹</span>
+                        Interesse em <strong>integração de sistemas, APIs e análise de dados</strong>
+                    </li>
+                    <li style="padding-left:24px;position:relative;">
+                        <span style="position:absolute;left:0;">🔹</span>
+                        Busca por oportunidades que permitam <strong>evoluir de suporte para desenvolvimento</strong>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FORMAÇÃO -->
+        <section class="section fade-in" id="formacao">
+            <h2 class="section-title"><span class="icon">🎓</span> Formação Acadêmica</h2>
+            <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;">
+                    <div>
+                        <h3 style="font-size:1.1rem;margin-bottom:2px;">Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                        <p style="color:var(--text-secondary);margin:0;">Estácio · 2023 – 2025 · Último semestre em andamento</p>
+                    </div>
+                    <span style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:16px;font-weight:700;font-size:0.8rem;">CURSANDO</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURSOS -->
+        <section class="section fade-in" id="cursos">
+            <h2 class="section-title"><span class="icon">📚</span> Cursos Complementares</h2>
+            <div class="courses-list">
+                <div class="course-item"><span class="course-name">Hardware, Redes e Notebooks</span><span class="course-hours">144h</span></div>
+                <div class="course-item"><span class="course-name">Aprendizagem em Serviços Administrativos (CIEE)</span><span class="course-hours">1280h</span></div>
+                <div class="course-item"><span class="course-name">E-commerce (SECTIDES)</span><span class="course-hours">120h</span></div>
+                <div class="course-item"><span class="course-name">Estratégias de Negócios (SECTIDES)</span><span class="course-hours">120h</span></div>
+                <div class="course-item"><span class="course-name">Informática Básica (Microlins)</span><span class="course-hours">78h</span></div>
+                <div class="course-item"><span class="course-name">Administrando Banco de Dados (F. Bradesco)</span><span class="course-hours">40h</span></div>
+                <div class="course-item"><span class="course-name">Algoritmo (Curso em Vídeo)</span><span class="course-hours">40h</span></div>
+                <div class="course-item"><span class="course-name">HTML e CSS na Prática (F. Bradesco)</span><span class="course-hours">40h</span></div>
+                <div class="course-item"><span class="course-name">Inovando com CSS (F. Bradesco)</span><span class="course-hours">26h</span></div>
+                <div class="course-item"><span class="course-name">Acelerador de Carreira com Power BI</span><span class="course-hours">8h</span></div>
+                <div class="course-item"><span class="course-name">Introdução ao Hacking e Pentester (Soly)</span><span class="course-hours">7h</span></div>
+                <div class="course-item"><span class="course-name">Imersão Kenzie Class</span><span class="course-hours">5h</span></div>
+                <div class="course-item"><span class="course-name">TD SYNNEX Lot (K-NOW)</span><span class="course-hours">—</span></div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section class="section fade-in" id="contato">
+            <h2 class="section-title"><span class="icon">📬</span> Entre em Contato</h2>
+            <div class="card" style="text-align:center;">
+                <p style="font-size:1.1rem;margin-bottom:16px;">
+                    Estou aberto a propostas e oportunidades na área de <strong>desenvolvimento de software, automação e suporte técnico</strong>.
+                </p>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+                    <a href="mailto:juniorwinglersantos@gmail.com"
+                    style="background:var(--accent);color:#fff;padding:10px 22px;border-radius:24px;text-decoration:none;font-weight:600;transition:var(--transition);">
+                    📧 Enviar E-mail
+                </a>
+                <a href="https://linkedin.com/in/jrsantomorau" target="_blank" rel="noopener"
+                style="background:#0a66c2;color:#fff;padding:10px 22px;border-radius:24px;text-decoration:none;font-weight:600;transition:var(--transition);">
+                🔗 Conectar no LinkedIn
+            </a>
+            <a href="https://wa.me/5527996410080" target="_blank" rel="noopener"
+            style="background:#25d366;color:#fff;padding:10px 22px;border-radius:24px;text-decoration:none;font-weight:600;transition:var(--transition);">
+            💬 WhatsApp
+        </a>
+    </div>
+</div>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+    <p>© <span id="ano"></span> José Roberto Junior Morau · Todos os direitos reservados</p>
+  
+</footer>
+
+<script>
+    // ── Ano dinâmico ──
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // ── Fade-in ao rolar ──
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Dispara fade-in nos elementos visíveis ao carregar ──
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
